@@ -69,7 +69,7 @@ namespace WarriorWars
                 
             } else
             {
-                System.Console.WriteLine($"The great {name} attacked {enemy.name} | {enemy.name} got inflicted this much damage {damage}, and has {enemy.health} remaining health ");
+                System.Console.WriteLine($"The great {name} ATTACKED {enemy.name} | {enemy.name} got inflicted this much damage {damage}, and has {enemy.health} remaining health ");
             }
         }
     }
