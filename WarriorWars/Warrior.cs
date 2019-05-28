@@ -6,6 +6,8 @@ namespace WarriorWars
 {
     class Warrior
     {
+        static Random rng = new Random();
+
         private const double HERO_STARTING_HEALTH = 100;
         private const double VILLAIN_STARTING_HEALTH = 100;
         private const double HERO_STARTING_MANA = 50;
@@ -57,9 +59,13 @@ namespace WarriorWars
 
         public void Attack(Warrior enemy)
         {
+
             double damage = weapon.Damage / enemy.armor.ArmorPoints;
             int durability = weapon.Durability;
-
+            if (rng.Next(1, 6) > 3)
+            {
+                damage = damage * 2;
+            }
             enemy.health -= damage;
 
             if (enemy.health <= 0)

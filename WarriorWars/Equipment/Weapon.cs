@@ -46,14 +46,14 @@ namespace WarriorWars.Equipment
         public Weapon(Faction faction)
         {
 
-            if (rng.Next(1, 6) > 3)
-            {
-                hero_damage = 10;
-            } 
-            if (rng.Next(1, 6) <= 3)
-            {
-                villain_damage = 10;
-            }
+            //if (rng.Next(1, 6) > 3)
+            //{
+            //    hero_damage = 10;
+            //} 
+            //if (rng.Next(1, 6) <= 3)
+            //{
+            //    villain_damage = 10;
+            //}
 
 
 
