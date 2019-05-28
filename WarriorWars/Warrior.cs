@@ -58,6 +58,7 @@ namespace WarriorWars
         public void Attack(Warrior enemy)
         {
             double damage = weapon.Damage / enemy.armor.ArmorPoints;
+            int durability = weapon.Durability;
 
             enemy.health -= damage;
 
@@ -70,6 +71,7 @@ namespace WarriorWars
             } else
             {
                 System.Console.WriteLine($"The great {name} ATTACKED {enemy.name} | {enemy.name} got inflicted this much tremendous ammount of painful damage {damage}, and has {enemy.health} remaining health ");
+                Console.WriteLine($"Your weapon still has {weapon.Durability} left, and the enemy's weapon {enemy.weapon.Durability}");
             }
         }
     }

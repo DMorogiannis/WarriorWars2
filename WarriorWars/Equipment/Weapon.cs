@@ -8,11 +8,14 @@ namespace WarriorWars.Equipment
     class Weapon
     {
         //Random rng = new Random();
+        static Random rng = new Random();
 
-        private const double HERO_DAMAGE = 5;
-        private const double VILLAIN_DAMAGE = 5;
+        double hero_damage = 5;
+        double villain_damage = 5;
 
         private double damage;
+        int hero_durability = 5;
+        int villain_durability = 5;
         private int durability;
         //private TypeWeapon type;
 
@@ -42,21 +45,56 @@ namespace WarriorWars.Equipment
 
         public Weapon(Faction faction)
         {
-            Random rng = new Random();
-            //if (rng.Next(1, 5) > 1)
+
+            if (rng.Next(1, 6) > 3)
+            {
+                hero_damage = 10;
+            } 
+            if (rng.Next(1, 6) <= 3)
+            {
+                villain_damage = 10;
+            }
+
+
+
+
+            //switch (faction)
             //{
-            //    HERO_DAMAGE = 10;
+            //    case Faction.Hero:
+            //        if (rng.Next(1, 6) == 1)
+            //        {
+            //            hero_durability -= 1;
+            //        }
+            //        break;
+            //    case Faction.Villain:
+            //        if (rng.Next(1, 6) == 1)
+            //        {
+            //            villain_durability -= 1;
+            //        }
+            //        break;
+            //    default:
+            //        break;
             //}
 
 
-            durability = 10;
+            // durability = 5;
             switch (faction)
             {
                 case Faction.Hero:
-                    damage = HERO_DAMAGE;
+                    damage = hero_damage;
+                    if (rng.Next(1, 6) == 1)
+                    {
+                        hero_durability -= 1;
+                    }
+                    durability = hero_durability;
                     break;
                 case Faction.Villain:
-                    damage = VILLAIN_DAMAGE;
+                    damage = villain_damage;
+                    if (rng.Next(1, 6) == 1)
+                    {
+                        villain_durability -= 1;
+                    }
+                    durability = villain_durability;
                     break;
                 default:
                     break;
