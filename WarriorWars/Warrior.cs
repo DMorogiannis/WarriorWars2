@@ -65,7 +65,6 @@ namespace WarriorWars
 
         public void Attack(Warrior enemy)
         {
-            //Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------");
             double damage = weapon.Damage / enemy.armor.ArmorPoints;
             if (rng.Next(1, 6) > 4)
             {
@@ -87,27 +86,43 @@ namespace WarriorWars
                 
             } else
             {
-                if (health < 50)
+                if (health < 40 && mana >= 10)
                 {
-                    Console.WriteLine("The situation is desperate, do you wanna try to use magic?\n<<Music intesifies>>\nYou need to have at least 10 mana");
-                    Console.WriteLine("Your mana left is {0}",mana);
-                    if (mana >= 10)
+                    Console.WriteLine("Your have {0} mana", mana);
+                    Console.WriteLine($"The situation is desperate {name}, do you wanna try to use magic?\n<<Music intesifies>>\nAnswer with 'YES/NO' fast.\tWHAT SAY YOU?");
+                    Console.WriteLine("The situation is desperate"); Tools.ColorfulWriteLine($"{name}", ConsoleColor.DarkBlue); Console.WriteLine("do you wanna try to use magic?\n<<Music intesifies>>\nAnswer with 'YES/NO' fast.\tWHAT SAY YOU?");
+                    string answer = Console.ReadLine();
+                    if (answer.Equals("YES") || answer.Equals("yes"))
                     {
                         mana -= 10;
-                        int randomMagic = rng.Next(1, 3);
-                        switch (randomMagic)
+                        int randomMagic = rng.Next(1, 4);
+                        if (rng.Next(1, 4) == 1) {
+                            switch (randomMagic)
+                            {
+                                case 1:
+                                    Tools.ColorfulWriteLine($"{name} used the powerful magic of thunderbolt", ConsoleColor.Yellow);
+                                    Console.WriteLine("The enemy has {0} health", enemy.health);
+                                    enemy.health -= 10;
+                                    Console.WriteLine("Now he has {0} health", enemy.health);
+                                    break;
+                                case 2:
+                                    Tools.ColorfulWriteLine($"{name} used the powerful magic of fire blast", ConsoleColor.DarkRed);
+                                    Console.WriteLine("The enemy has {0} health", enemy.health);
+                                    enemy.health -= 7;
+                                    Console.WriteLine("Now he has {0} health", enemy.health);
+                                    break;
+                                case 3:
+                                    Tools.ColorfulWriteLine($"{name} used the powerful magic of ice beam", ConsoleColor.Cyan);
+                                    Console.WriteLine("The enemy has {0} health", enemy.health);
+                                    enemy.health -= 8.5;
+                                    Console.WriteLine("Now he has {0} health", enemy.health);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } else
                         {
-                            case 1:
-                                Console.WriteLine($"{name} used the powerful magic of thunderbolt");
-                                break;
-                            case 2:
-                                Console.WriteLine($"{name} used the powerful magic of fire blast");
-                                break;
-                            case 3:
-                                Console.WriteLine($"{name} used the powerful magic of ice beam");
-                                break;
-                            default:
-                                break;
+                            Tools.ColorfulWriteLine("You failed to use magic you pathetic worm. 10 Mana went to waste", ConsoleColor.DarkMagenta);
                         }
                     }
                     //rng.Next(1,2) 
