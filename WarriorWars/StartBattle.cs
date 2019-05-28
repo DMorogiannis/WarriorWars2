@@ -15,8 +15,6 @@ namespace WarriorWars
 
         static void Main(string[] args)
         {
-            //string hero1 = " ";
-            //string villain1 = " ";
             Console.WriteLine("Give the name of your hero : ");
             string hero1 = Console.ReadLine();
             Console.WriteLine("Give the name of the villain you are going to fight : ");
@@ -26,7 +24,7 @@ namespace WarriorWars
 
             while (goodwarrior.IsAlive && evilwarrior.IsAlive)
             {
-                if (rng.Next(0, 10) < 5)
+                if (rng.Next(0, 9) < 5)
                 {
                     goodwarrior.Attack(evilwarrior);
                 }
@@ -35,7 +33,7 @@ namespace WarriorWars
                     evilwarrior.Attack(goodwarrior);
                 }
 
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
 
             Console.WriteLine("Press any button to continue");
