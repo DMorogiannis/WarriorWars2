@@ -133,7 +133,7 @@ namespace WarriorWars
                     Console.WriteLine($"Your weapon has {durability} hp left"); //and the enemy's weapon {enemy.durability} hp");
                 } else 
                 {
-                    Console.WriteLine("Your great weapon is broken {0}, hands only now", name);
+                    Console.WriteLine("Your great EXTRA weapon is broken {0}, hands only now", name);
                 }
                 Console.WriteLine("-------------------------------------------------------------------------------------------------");
             }
