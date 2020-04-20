@@ -4,7 +4,7 @@ namespace WarriorWars.Equipment
 {
     class Armor
     {
-        private const int HERO_ARMOR = 3;
+        private const int HERO_ARMOR = 2;
 
         private const int VILLAIN_ARMOR = 2;
 
